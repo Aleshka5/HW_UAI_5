@@ -18,8 +18,9 @@ def copy_element(name_file):
         shutil.copy(name_file,f"{name[0]}_copy{name[1]}")
     else:
         shutil.copy(name_file, f"{name_file}_copy")
+
 def view_in_folder():
-    print(os.listdir())
+    return os.listdir()
 
 def view_only_folders():
     list_all = os.listdir()
@@ -34,9 +35,9 @@ def view_only_files():
             print(i)
 
 def os_info():
-    print(sys.platform)
+    return sys.platform
 def programm_creator():
-    print('Aleshka5')
+    return 'Aleshka5'
 def user_bank_accaunt(user_money):
     print(f"На вашем счету {user_money} рублей")
 def change_current_directory(new_directory):

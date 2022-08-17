@@ -17,15 +17,15 @@ while True:
         name_new_file = input()
         copy_element(name_new_file)
     elif user_input == '4':
-        view_in_folder()
+        print(view_in_folder())
     elif user_input == '5':
         view_only_folders()
     elif user_input == '6':
         view_only_files()
     elif user_input == '7':
-        os_info()
+        print(os_info())
     elif user_input == '8':
-        programm_creator()
+        print(programm_creator())
     elif user_input == '9':
         start()
     elif user_input == '10':
