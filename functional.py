@@ -25,13 +25,13 @@ def view_in_folder():
 def view_only_folders():
     list_all = os.listdir()
     for i in list_all:
-        if '.' not in i:
+        if os.path.isdir(i):
             print(i)
 
 def view_only_files():
     list_all = os.listdir()
     for i in list_all:
-        if '.' in i:
+        if os.path.isfile(i):
             print(i)
 
 def os_info():
