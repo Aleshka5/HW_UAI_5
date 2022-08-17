@@ -1,0 +1,2 @@
+files: bank_account.py,consol_file_manager.py,current_directory.txt,files_module.py,functional.py,LICENSE,test_filemanager.py,test_python.py,user_wallet.json,victory.py,
+folders: .git,.idea,Im_folder,__pycache__,

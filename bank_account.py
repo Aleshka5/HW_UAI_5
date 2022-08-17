@@ -74,13 +74,11 @@ def print_shopping_history(user_shopping_history):
     print('*' * 30)
     print('Продукт  | Количество | Цена')
     for product, info in user_shopping_history.items():
-        print(f'{product} | {info[0]} шт. | {info[1]} руб.')
+        print('{:<9}|{:^9}шт.| {} руб.'.format(product,info[0],info[1]))
     print('*' * 30)
     return None
 
-def my_account():
-    user_wallet = 0
-    user_shopping_history = {}
+def my_account(user_wallet, user_shopping_history):
     while True:
         print('='*30)
         print(f'На вашем счету {user_wallet} руб')
@@ -90,7 +88,7 @@ def my_account():
         print('3. история покупок')
         print('4. выход')
         print('=' * 30)
-        choice = input('Выберите пункт меню')
+        choice = input('Выберите пункт меню: ')
         if choice == '1':
             user_wallet = add_money(user_wallet)
         elif choice == '2':
@@ -101,3 +99,15 @@ def my_account():
             break
         else:
             print('Неверный пункт меню')
+    return user_wallet, user_shopping_history
+
+if __name__ == '__main__':
+    name_file = 'user_wallet.json'
+
+    data = files_module.check_file_wallet_in_current_directory(name_file)
+    user_wallet = data['user_wallet']
+    user_shopping_history = data['user_shopping_history']
+
+    user_wallet, user_shopping_history = my_account(user_wallet, user_shopping_history)
+
+    files_module.save_data(name_file,user_wallet,user_shopping_history)
