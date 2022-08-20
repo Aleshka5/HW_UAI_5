@@ -29,6 +29,7 @@ def save_diretory_in_file(name_file):
     for i in os.listdir():
         if os.path.isfile(i):
             files += i+','
+
     folders = ''
     for i in os.listdir():
         if os.path.isdir(i):

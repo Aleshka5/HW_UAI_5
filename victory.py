@@ -25,10 +25,9 @@ def start_game(dict_ans_wrt):
         for i in dict_ans_wrt:
             user_answer = input(f'Назовите дату рождения следующего писателя (в формате XX.XX.XXXX): {i} ')
             is_right, message = check_answer(user_answer,dict_ans_wrt[i])
-            if is_right:
-                prise += 1
-            else:
-                print(message)
+
+            prise += 1 if is_right else print(message)
+
         print(f'Правильных ответов: {prise}')
         print(f'Ошибок: {max_prise-prise}')
         print(f'Процент верных ответов: {(prise/max_prise)*100}%')

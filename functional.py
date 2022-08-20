@@ -3,15 +3,9 @@ import sys
 import shutil
 
 def create_folder(i):
-    if not os.path.exists(f"new_folder{i}"):
-        os.mkdir(f"new_folder{i}")
-    else:
-        print('Такая папка уже существует')
+    os.mkdir(f"new_folder{i}") if not os.path.exists(f"new_folder{i}") else print('Такая папка уже существует')
 def delete_element(i):
-    if os.path.exists(f"new_folder{i}"):
-        os.rmdir(f"new_folder{i}")
-    else:
-        print('Такая папка уже существует')
+    os.rmdir(f"new_folder{i}") if os.path.exists(f"new_folder{i}") else print('Такая папка уже существует')
 def copy_element(name_file):
     if '.' in name_file:
         name = name_file.split('.')
@@ -24,16 +18,13 @@ def view_in_folder():
 
 def view_only_folders():
     list_all = os.listdir()
-    for i in list_all:
-        if os.path.isdir(i):
-            print(i)
+    generate_directory = [i for i in list_all if os.path.isdir(i)]
+    print(generate_directory)
 
 def view_only_files():
     list_all = os.listdir()
-    for i in list_all:
-        if os.path.isfile(i):
-            print(i)
-
+    generate_files = [i for i in list_all if os.path.isfile(i)]
+    print(generate_files)
 def os_info():
     return sys.platform
 def programm_creator():
